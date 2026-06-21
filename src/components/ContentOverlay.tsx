@@ -19,14 +19,21 @@ try {
   console.warn("Failed to load dynamic images from src/assets/images", e);
 }
 
+const getAssetPath = (path: string) => {
+  const base = import.meta.env.BASE_URL || '/';
+  const cleanBase = base.endsWith('/') ? base : `${base}/`;
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return `${cleanBase}${cleanPath}`;
+};
+
 // Fallback static array
 const fallbackImages = [
-  '/images/garden_1.jpg',
-  '/images/garden_2.jpg',
-  '/images/garden_3.jpg',
-  '/images/garden_4.jpg',
-  '/images/garden_5.jpg',
-  '/images/garden_6.jpg',
+  getAssetPath('/images/garden_1.jpg'),
+  getAssetPath('/images/garden_2.jpg'),
+  getAssetPath('/images/garden_3.jpg'),
+  getAssetPath('/images/garden_4.jpg'),
+  getAssetPath('/images/garden_5.jpg'),
+  getAssetPath('/images/garden_6.jpg'),
 ];
 
 const gardenImages = dynamicGardenImages.length > 0 ? dynamicGardenImages : fallbackImages;
@@ -338,7 +345,7 @@ export const ContentOverlay: React.FC<ContentOverlayProps> = ({ activeFruit, set
             </svg>
           </div>
           <img 
-            src="/images/hero_garden_illustration.png" 
+            src={getAssetPath('/images/hero_garden_illustration.png')} 
             alt="Ekolojik Bahçemiz İllüstrasyonu" 
             className="hero-illustration-img" 
           />
@@ -666,7 +673,7 @@ export const ContentOverlay: React.FC<ContentOverlayProps> = ({ activeFruit, set
 
                     <img 
                       key={activeVariety.image}
-                      src={activeVariety.image} 
+                      src={getAssetPath(activeVariety.image)} 
                       alt={activeVariety.name} 
                       className="variety-showcase-img"
                     />

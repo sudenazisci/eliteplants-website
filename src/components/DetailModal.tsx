@@ -23,6 +23,13 @@ interface DetailModalProps {
   onClose: () => void;
 }
 
+const getAssetPath = (path: string) => {
+  const base = import.meta.env.BASE_URL || '/';
+  const cleanBase = base.endsWith('/') ? base : `${base}/`;
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return `${cleanBase}${cleanPath}`;
+};
+
 export const DetailModal: React.FC<DetailModalProps> = ({ isOpen, variety, onClose }) => {
   if (!variety) return null;
 
@@ -38,7 +45,7 @@ export const DetailModal: React.FC<DetailModalProps> = ({ isOpen, variety, onClo
 
         <div className="modal-body">
           <div className="modal-hero">
-            <img src={variety.image} alt={variety.name} />
+            <img src={getAssetPath(variety.image)} alt={variety.name} />
           </div>
           
           <div className="modal-info">
