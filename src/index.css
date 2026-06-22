@@ -3702,6 +3702,90 @@ h1, h2, h3, h4 {
   }
 }
 
+/* ============================================================
+   RTL (RIGHT-TO-LEFT) SUPPORT FOR ARABIC
+   ============================================================ */
+html[dir="rtl"] {
+  text-align: right;
+}
+
+html[dir="rtl"] .about-text-col {
+  align-items: flex-end;
+  text-align: right;
+}
+
+html[dir="rtl"] .about-tab-content {
+  text-align: right !important;
+}
+
+html[dir="rtl"] .about-pane-title {
+  border-bottom: none;
+  border-right: 1.5px solid var(--color-primary);
+  padding-left: 0;
+  padding-right: 4px;
+}
+
+html[dir="rtl"] .stat-mini-item {
+  text-align: right;
+}
+
+html[dir="rtl"] .stat-mini-item::before {
+  left: auto;
+  right: 0;
+}
+
+html[dir="rtl"] .lang-selector-container {
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+html[dir="rtl"] .logo-vintage-text span {
+  margin-left: 0;
+  margin-right: 10px;
+  border-left: none;
+  border-right: 1px solid rgba(28, 50, 36, 0.18);
+  padding-left: 0;
+  padding-right: 10px;
+}
+
+html[dir="rtl"] .app-container.active-sec-home .logo-vintage-text span,
+html[dir="rtl"] .app-container.active-sec-products .logo-vintage-text span,
+html[dir="rtl"] .app-container.active-sec-about .logo-vintage-text span,
+html[dir="rtl"] .app-container.active-sec-varieties .logo-vintage-text span {
+  border-left-color: transparent;
+  border-right-color: rgba(255, 255, 255, 0.15);
+}
+
+html[dir="rtl"] .social-sidebar {
+  left: auto !important;
+  right: 30px !important;
+}
+
+html[dir="rtl"] .section-side-drawing.left {
+  left: auto;
+  right: 0;
+}
+
+html[dir="rtl"] .section-side-drawing.right {
+  right: auto;
+  left: 0;
+  transform: translateY(-50%) scaleX(-1);
+}
+
+html[dir="rtl"] .lang-option-btn {
+  text-align: right;
+}
+
+html[dir="rtl"] .footer-col {
+  align-items: flex-end;
+  text-align: right;
+}
+
+html[dir="rtl"] .gallery-thumbnails-strip {
+  direction: ltr; /* keeps the scroll swipe direction natural for users */
+}
+
+
 
 
 
