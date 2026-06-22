@@ -1,5 +1,7 @@
 import React from 'react';
 import { X, Check, Award, Sprout } from 'lucide-react';
+import { useTranslation } from '../context/LanguageContext';
+import type { TranslationDict } from '../i18n';
 
 export interface VarietyDetail {
   id: string;
@@ -31,7 +33,17 @@ const getAssetPath = (path: string) => {
 };
 
 export const DetailModal: React.FC<DetailModalProps> = ({ isOpen, variety, onClose }) => {
+  const { t } = useTranslation();
+  
   if (!variety) return null;
+
+  const getTranslated = (
+    field: 'tag' | 'desc' | 'origin' | 'growth' | 'size' | 'taste' | 'chill' | 'harvest' | 'shelf',
+    fallback: string
+  ): string => {
+    const key = `${variety.id}_${field}` as keyof TranslationDict;
+    return t[key] || fallback;
+  };
 
   return (
     <div className={`modal-overlay ${isOpen ? 'open' : ''}`} onClick={onClose}>
@@ -39,7 +51,7 @@ export const DetailModal: React.FC<DetailModalProps> = ({ isOpen, variety, onClo
         className="modal-content glass-panel-glow" 
         onClick={(e) => e.stopPropagation()}
       >
-        <button className="modal-close" onClick={onClose} aria-label="Kapat">
+        <button className="modal-close" onClick={onClose} aria-label={t.modalClose}>
           <X size={20} />
         </button>
 
@@ -49,54 +61,54 @@ export const DetailModal: React.FC<DetailModalProps> = ({ isOpen, variety, onClo
           </div>
           
           <div className="modal-info">
-            <span className="modal-tag">{variety.tag}</span>
+            <span className="modal-tag">{getTranslated('tag', variety.tag)}</span>
             <h2 className="modal-title">{variety.name}</h2>
-            <p className="modal-desc">{variety.description}</p>
+            <p className="modal-desc">{getTranslated('desc', variety.description)}</p>
             
-            <h3 style={{ fontSize: '1.4rem', marginBottom: '15px' }}>Teknik Özellikler</h3>
+            <h3 style={{ fontSize: '1.4rem', marginBottom: '15px' }}>{t.modalFeatures}</h3>
             
             <div className="modal-specs">
               <div className="spec-item">
-                <span className="spec-name">Köken</span>
-                <span className="spec-value">{variety.origin}</span>
+                <span className="spec-name">{t.modalOrigin}</span>
+                <span className="spec-value">{getTranslated('origin', variety.origin)}</span>
               </div>
               <div className="spec-item">
-                <span className="spec-name">Büyüme Formu</span>
-                <span className="spec-value">{variety.growth}</span>
+                <span className="spec-name">{t.modalGrowth}</span>
+                <span className="spec-value">{getTranslated('growth', variety.growth)}</span>
               </div>
               <div className="spec-item">
-                <span className="spec-name">Meyve Boyutu</span>
-                <span className="spec-value">{variety.fruitSize}</span>
+                <span className="spec-name">{t.modalFruitSize}</span>
+                <span className="spec-value">{getTranslated('size', variety.fruitSize)}</span>
               </div>
               <div className="spec-item">
-                <span className="spec-name">Lezzet Profili</span>
-                <span className="spec-value">{variety.taste}</span>
+                <span className="spec-name">{t.modalTaste}</span>
+                <span className="spec-value">{getTranslated('taste', variety.taste)}</span>
               </div>
               <div className="spec-item">
-                <span className="spec-name">Soğuklama İhtiyacı</span>
-                <span className="spec-value">{variety.chillHours}</span>
+                <span className="spec-name">{t.modalChill}</span>
+                <span className="spec-value">{getTranslated('chill', variety.chillHours)}</span>
               </div>
               <div className="spec-item">
-                <span className="spec-name">Hasat Dönemi</span>
-                <span className="spec-value">{variety.harvest}</span>
+                <span className="spec-name">{t.modalHarvest}</span>
+                <span className="spec-value">{getTranslated('harvest', variety.harvest)}</span>
               </div>
-              {variety.shelfLife && (
+              {(variety.shelfLife || getTranslated('shelf', '')) && (
                 <div className="spec-item">
-                  <span className="spec-name">Raf Ömrü & Dayanıklılık</span>
-                  <span className="spec-value">{variety.shelfLife}</span>
+                  <span className="spec-name">{t.modalShelfLife}</span>
+                  <span className="spec-value">{getTranslated('shelf', variety.shelfLife)}</span>
                 </div>
               )}
             </div>
 
             <div style={{ marginTop: '40px', display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
               <div className="hero-tag" style={{ margin: 0, color: 'var(--color-primary)' }}>
-                <Check size={14} /> Organik Tarım
+                <Check size={14} /> {t.modalOrganic}
               </div>
               <div className="hero-tag" style={{ margin: 0, color: 'var(--color-primary)' }}>
-                <Award size={14} /> Üstün Kalite fidan
+                <Award size={14} /> {t.modalSapling}
               </div>
               <div className="hero-tag" style={{ margin: 0, color: 'var(--color-primary)' }}>
-                <Sprout size={14} /> Sürdürülebilir
+                <Sprout size={14} /> {t.modalSustainable}
               </div>
             </div>
           </div>

@@ -8,10 +8,10 @@ interface FruitSelectorProps {
 }
 
 export const FruitSelector: React.FC<FruitSelectorProps> = ({ activeFruit, onChangeFruit }) => {
-  const fruits: { id: FruitType; label: string; color: string; emoji: string }[] = [
-    { id: 'blackberry', label: 'Karaberry', color: '#7b2cbf', emoji: '🍇' },
-    { id: 'raspberry', label: 'Alberry', color: '#d81b60', emoji: '🍓' },
-    { id: 'blueberry', label: 'Gökberry', color: '#0077b6', emoji: '🫐' },
+  const fruits: { id: FruitType; label: string; color: string }[] = [
+    { id: 'blackberry', label: 'Karaberry', color: '#8b5cf6' }, // Modernized purple
+    { id: 'raspberry', label: 'Alberry', color: '#ec4899' },    // Modernized pink
+    { id: 'blueberry', label: 'Gökberry', color: '#0ea5e9' },    // Modernized sky blue
   ];
 
   const handleFruitSelect = (fruit: FruitType) => {
@@ -31,7 +31,6 @@ export const FruitSelector: React.FC<FruitSelectorProps> = ({ activeFruit, onCha
               '--item-color': fruit.color,
             } as React.CSSProperties}
           >
-            <span className="selector-emoji">{fruit.emoji}</span>
             <span className="selector-item-label">
               {fruit.label}
               {fruit.id === 'blueberry' && (

@@ -69,7 +69,7 @@ function App() {
   };
 
   return (
-    <div className="app-container">
+    <div className={`app-container active-sec-${activeSection} active-fruit-${activeFruit}`}>
       {/* Premium film grain texture */}
       <div className="noise-overlay" />
 

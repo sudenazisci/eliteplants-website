@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Sprout, ShoppingBag, Award, Sparkles, Mail } from 'lucide-react';
+import { Sprout, ShoppingBag, Award, Sparkles, Mail, Globe } from 'lucide-react';
+import { useTranslation } from '../context/LanguageContext';
+import type { Language } from '../i18n';
 
 interface NavbarProps {
   activeSection: string;
@@ -7,6 +9,7 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t, language, setLanguage } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +35,18 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
     }
   };
 
+  const getLanguageLabel = (lang: Language) => {
+    const labels: Record<Language, string> = {
+      tr: 'Türkçe',
+      en: 'English',
+      es: 'Español',
+      fr: 'Français',
+      de: 'Deutsch',
+      ru: 'Русский'
+    };
+    return labels[lang];
+  };
+
   return (
     <nav className={`navbar-vintage ${isScrolled ? 'scrolled' : ''}`}>
       <div className="navbar-vintage-container">
@@ -41,13 +56,13 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             onClick={() => scrollToSection('products')} 
             className={activeSection === 'products' ? 'active' : ''}
           >
-            <ShoppingBag size={14} /> Ürünlerimiz
+            <ShoppingBag size={14} /> {t.navProducts}
           </a>
           <a 
             onClick={() => scrollToSection('varieties')} 
             className={activeSection === 'varieties' ? 'active' : ''}
           >
-            <Award size={14} /> Çeşitlerimiz
+            <Award size={14} /> {t.navVarieties}
           </a>
         </div>
 
@@ -69,14 +84,34 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             onClick={() => scrollToSection('about')} 
             className={activeSection === 'about' ? 'active' : ''}
           >
-            <Sparkles size={14} /> Hakkımızda
+            <Sparkles size={14} /> {t.navAbout}
           </a>
           <a 
             onClick={() => scrollToSection('contact')} 
             className={activeSection === 'contact' ? 'active' : ''}
           >
-            <Mail size={14} /> İletişim
+            <Mail size={14} /> {t.navContact}
           </a>
+
+          {/* Premium Language Dropdown */}
+          <div className="lang-selector-container">
+            <button className="lang-selector-btn">
+              <Globe size={14} />
+              <span>{language.toUpperCase()}</span>
+            </button>
+            <div className="lang-dropdown">
+              {(['tr', 'en', 'es', 'fr', 'de', 'ru'] as Language[]).map((lang) => (
+                <button
+                  key={lang}
+                  onClick={() => setLanguage(lang)}
+                  className={`lang-option-btn ${language === lang ? 'active' : ''}`}
+                >
+                  <span className="lang-code-tag">{lang.toUpperCase()}</span>
+                  <span className="lang-full-name">{getLanguageLabel(lang)}</span>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </nav>
