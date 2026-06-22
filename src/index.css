@@ -3424,6 +3424,137 @@ h1, h2, h3, h4 {
   backdrop-filter: blur(20px) !important;
 }
 
+/* Comprehensive Mobile Responsive Polish Overrides */
+@media (max-width: 768px) {
+  /* Scale Typography & Headers */
+  h1.hero-vintage-title {
+    font-size: 2.2rem !important;
+    line-height: 1.3 !important;
+  }
+  .section-title {
+    font-size: 2.0rem !important;
+  }
+  .hero-vintage-desc, .products-vintage-container p, .varieties-header p {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Navigation Bar Adjustments */
+  .navbar-vintage-container {
+    height: 60px !important;
+  }
+  .lang-selector-btn {
+    padding: 4px 10px !important;
+    font-size: 0.72rem !important;
+  }
+  .lang-dropdown {
+    top: calc(100% + 4px) !important;
+  }
+
+  /* Hero Section spacing */
+  .hero-vintage-section {
+    padding: 100px 20px 50px !important;
+    min-height: auto !important;
+  }
+  .hero-vintage-actions {
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+  .hero-vintage-actions button {
+    width: 100% !important;
+    padding: 12px 20px !important;
+    font-size: 0.85rem !important;
+  }
+  .hero-vintage-stats {
+    flex-direction: column !important;
+    gap: 15px !important;
+    margin-top: 40px !important;
+  }
+  .stat-vintage-divider {
+    display: none !important;
+  }
+
+  /* Grid Layouts Stacked */
+  .products-grid-vintage {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .about-vintage-split {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+  .varieties-split-layout {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  /* SlideShow & Thumbnails sizes */
+  .about-left-media {
+    width: 100% !important;
+  }
+  .slideshow-frame {
+    height: 260px !important;
+  }
+  .gallery-thumbnails-strip {
+    padding: 8px !important;
+    gap: 6px !important;
+  }
+  .gallery-thumb-btn {
+    width: 45px !important;
+    height: 45px !important;
+  }
+
+  /* Varieties section left image sticky frame height */
+  .variety-sticky-3d {
+    height: 300px !important;
+  }
+
+  /* Hide sidebar on screens that are too narrow */
+  .social-sidebar {
+    display: none !important;
+  }
+
+  /* Modal Dialog Polish */
+  .modal-content {
+    width: 95% !important;
+    max-height: 85vh !important;
+    padding: 20px !important;
+    border-radius: 20px !important;
+  }
+  .modal-body {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .modal-hero {
+    height: 200px !important;
+  }
+  .bento-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  h1.hero-vintage-title {
+    font-size: 1.8rem !important;
+  }
+  .section-title {
+    font-size: 1.7rem !important;
+  }
+  .varieties-category-tabs {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    justify-content: center !important;
+  }
+  .varieties-category-tabs .tab-btn {
+    flex: 1 1 40% !important;
+    padding: 10px !important;
+    font-size: 0.8rem !important;
+    text-align: center !important;
+  }
+}
+
 
 
 
