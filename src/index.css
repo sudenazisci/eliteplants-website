@@ -3451,18 +3451,25 @@ h1, h2, h3, h4 {
     hyphens: auto;
   }
   .about-tabs-nav {
-    flex-wrap: wrap !important;
-    flex-direction: column !important;
-    border-radius: 12px !important;
-    padding: 6px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    border-radius: 30px !important;
+    padding: 4px !important;
     gap: 4px !important;
+    width: 100% !important;
+    max-width: 360px !important;
+    margin: 0 auto 16px !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
   }
   .about-tabs-nav .about-tab-btn {
-    width: 100% !important;
-    flex: none !important;
-    padding: 10px !important;
-    font-size: 0.8rem !important;
-    border-radius: 8px !important;
+    width: auto !important;
+    flex: 1 1 50% !important;
+    padding: 8px 16px !important;
+    font-size: 0.78rem !important;
+    border-radius: 26px !important;
+    white-space: nowrap !important;
   }
   .hero-vintage-desc, .products-vintage-container p, .varieties-header p, .about-desc {
     font-size: 0.9rem !important;
@@ -3512,7 +3519,8 @@ h1, h2, h3, h4 {
   }
   .about-section {
     grid-template-columns: 1fr !important;
-    gap: 30px !important;
+    gap: 24px !important;
+    padding: 0 10px !important;
   }
   .varieties-split-layout {
     grid-template-columns: 1fr !important;
@@ -3525,16 +3533,35 @@ h1, h2, h3, h4 {
     width: 100% !important;
     max-width: 100% !important;
   }
-  .slideshow-frame {
-    height: 260px !important;
+  .about-tab-content {
+    min-height: auto !important;
+    padding: 20px !important;
+    margin-bottom: 20px !important;
+    border-radius: 16px !important;
+    text-align: left !important;
+  }
+  .gallery-showcase-container {
+    width: 100% !important;
+    max-width: 480px !important;
+    margin: 0 auto !important;
+    gap: 12px !important;
+  }
+  .gallery-main-viewport {
+    aspect-ratio: 16 / 9 !important;
+    max-height: 250px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3) !important;
   }
   .gallery-thumbnails-strip {
-    padding: 8px !important;
+    padding: 4px 0 !important;
     gap: 6px !important;
+    justify-content: flex-start !important;
   }
   .gallery-thumb-btn {
-    width: 45px !important;
-    height: 45px !important;
+    flex: 0 0 44px !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 8px !important;
   }
 
   /* Varieties section left image sticky frame height */
@@ -3582,10 +3609,23 @@ h1, h2, h3, h4 {
     line-height: 1.45 !important;
   }
   .about-tabs-nav {
-    flex-direction: column !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    border-radius: 30px !important;
+    padding: 4px !important;
+    gap: 4px !important;
+    width: 100% !important;
+    max-width: 300px !important;
+    margin: 0 auto 16px !important;
   }
   .about-tabs-nav .about-tab-btn {
-    font-size: 0.75rem !important;
+    width: auto !important;
+    flex: 1 !important;
+    padding: 7px 10px !important;
+    font-size: 0.72rem !important;
+    border-radius: 25px !important;
+    white-space: nowrap !important;
   }
   .varieties-category-tabs {
     flex-wrap: wrap !important;
@@ -3630,26 +3670,31 @@ h1, h2, h3, h4 {
     padding: 14px !important;
   }
   .about-section {
-    gap: 12px !important;
+    gap: 16px !important;
   }
   .about-tab-content {
     padding: 14px !important;
     margin-bottom: 12px !important;
-    border-radius: 16px !important;
+    border-radius: 12px !important;
   }
   .gallery-showcase-container {
+    max-width: 100% !important;
     gap: 8px !important;
   }
-  .slideshow-frame {
-    height: 180px !important;
+  .gallery-main-viewport {
+    aspect-ratio: 16 / 9 !important;
+    max-height: 170px !important;
+    border-radius: 10px !important;
   }
   .gallery-thumbnails-strip {
-    padding: 6px !important;
-    gap: 6px !important;
+    padding: 4px 0 !important;
+    gap: 5px !important;
   }
   .gallery-thumb-btn {
+    flex: 0 0 38px !important;
     width: 38px !important;
     height: 38px !important;
+    border-radius: 6px !important;
   }
   .about-pane-title {
     font-size: 0.72rem !important;
