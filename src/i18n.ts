@@ -47,6 +47,11 @@ export interface TranslationDict {
   varietiesFruitSelect: string;
   varietiesSoon: string;
 
+  // Gallery
+  galleryTitle: string;
+  gallerySub: string;
+  galleryDesc: string;
+
   // Detail Modal
   modalOrigin: string;
   modalGrowth: string;
@@ -167,6 +172,9 @@ export const translations: Record<Language, TranslationDict> = {
     varietiesSub: 'Dereçine bahçemizde özenle yetiştirdiğimiz, tescilli ve EMCO CAL lisanslı elit meyve çeşitlerimizin teknik özelliklerini ve verim analizlerini inceleyin.',
     varietiesFruitSelect: 'Meyve Seçimi',
     varietiesSoon: 'Yakında',
+    galleryTitle: 'Fotoğraf Galerisi',
+    gallerySub: 'Ekolojik Bahçemiz',
+    galleryDesc: 'Bahçemizden çekilmiş, fidanlarımızın büyüme aşamalarını ve ekolojik tarım sahasını gösteren tüm fotoğraflar ({count} Görsel).',
     modalOrigin: 'Köken / Islahçı',
     modalGrowth: 'Büyüme Formu',
     modalFruitSize: 'Meyve Boyutu',
@@ -281,6 +289,9 @@ export const translations: Record<Language, TranslationDict> = {
     varietiesSub: 'Examine the technical specifications and yield analysis of our elite, registered, and EMCO CAL licensed fruit varieties carefully grown in our Dereçine garden.',
     varietiesFruitSelect: 'Fruit Selection',
     varietiesSoon: 'Soon',
+    galleryTitle: 'Photo Gallery',
+    gallerySub: 'Our Ecological Garden',
+    galleryDesc: 'All photos taken from our garden showing the growth stages of our saplings and the organic farming site ({count} images).',
     modalOrigin: 'Origin / Breeder',
     modalGrowth: 'Growth Habit',
     modalFruitSize: 'Fruit Size',
@@ -395,6 +406,9 @@ export const translations: Record<Language, TranslationDict> = {
     varietiesSub: 'Examine las especificaciones técnicas y análisis de rendimiento de nuestras variedades de frutas de élite con licencias de EMCO CAL cultivadas en Dereçine.',
     varietiesFruitSelect: 'Selección de Fruta',
     varietiesSoon: 'Pronto',
+    galleryTitle: 'Galería de Fotos',
+    gallerySub: 'Nuestro Jardín Ecológico',
+    galleryDesc: 'Todas las fotos tomadas de nuestro jardín que muestran las etapas de crecimiento de nuestras plantas y el sitio de agricultura orgánica ({count} imágenes).',
     modalOrigin: 'Origen / Obtentor',
     modalGrowth: 'Hábito de Crecimiento',
     modalFruitSize: 'Tamaño del Fruto',
@@ -509,6 +523,9 @@ export const translations: Record<Language, TranslationDict> = {
     varietiesSub: 'Consultez les fiches techniques et analyses de rendement de nos variétés de fruits d\'élite sous licence EMCO CAL cultivés avec soin dans nos vergers de Dereçine.',
     varietiesFruitSelect: 'Choix du Fruit',
     varietiesSoon: 'Bientôt',
+    galleryTitle: 'Galerie Photos',
+    gallerySub: 'Notre Verger Écologique',
+    galleryDesc: 'Toutes les photos de notre verger montrant les étapes de croissance de nos plants et le site d\'agriculture biologique ({count} images).',
     modalOrigin: 'Origine / Obtenteur',
     modalGrowth: 'Port de la Plante',
     modalFruitSize: 'Calibre du Fruit',
@@ -623,6 +640,9 @@ export const translations: Record<Language, TranslationDict> = {
     varietiesSub: 'Prüfen Sie die technischen Spezifikationen und Ertragsanalysen unserer in Dereçine angebauten Elite-Obstsorten mit EMCO CAL-Lizenz.',
     varietiesFruitSelect: 'Fruchtwahl',
     varietiesSoon: 'Demnächst',
+    galleryTitle: 'Fotogalerie',
+    gallerySub: 'Unser Ökologischer Garten',
+    galleryDesc: 'Alle Fotos aus unserem Garten, die die Wachstumsstadien unserer Pflanzen und die Fläche für biologischen Anbau zeigen ({count} Bilder).',
     modalOrigin: 'Herkunft / Züchter',
     modalGrowth: 'Wuchsform',
     modalFruitSize: 'Fruchtgröße',
@@ -737,6 +757,9 @@ export const translations: Record<Language, TranslationDict> = {
     varietiesSub: 'Ознакомьтесь с техническими характеристиками и урожайностью элитных лицензированных сортов EMCO CAL из нашего сада в Дерачине.',
     varietiesFruitSelect: 'Выбор ягоды',
     varietiesSoon: 'Скоро',
+    galleryTitle: 'Фотогалерея',
+    gallerySub: 'Наш Экологический Сад',
+    galleryDesc: 'Все фотографии из нашего сада, показывающие этапы роста саженцев и органическое производство ({count} фото).',
     modalOrigin: 'Происхождение / Селекционер',
     modalGrowth: 'Характер роста',
     modalFruitSize: 'Размер ягоды',
@@ -851,6 +874,9 @@ export const translations: Record<Language, TranslationDict> = {
     varietiesSub: '查看我们在德雷奇内果园精心培育的 EMCO CAL 授权精英水果品种的规格和产量分析。',
     varietiesFruitSelect: '水果选择',
     varietiesSoon: '即将推出',
+    galleryTitle: '照片画廊',
+    gallerySub: '我们的生态果园',
+    galleryDesc: '从我们的果园拍摄的所有照片，展示了我们幼苗的生长阶段和有机农业场地（共 {count} 张图片）。',
     modalOrigin: '来源 / 育种者',
     modalGrowth: '生长形态',
     modalFruitSize: '果实大小',
@@ -965,6 +991,9 @@ export const translations: Record<Language, TranslationDict> = {
     varietiesSub: 'デレチネ農園で大切に育てられた、EMCO CAL ライセンスの優良フルーツ品種のスペックと収量分析をご覧ください。',
     varietiesFruitSelect: '果物の選択',
     varietiesSoon: '近日公開',
+    galleryTitle: 'フォトギャラリー',
+    gallerySub: '私たちの生態系農園',
+    galleryDesc: '苗木の成長段階と有機農業エリアを示す、農園から撮影されたすべての写真（全 {count} 枚）。',
     modalOrigin: '原産地 / 育成者',
     modalGrowth: '樹形・生育特性',
     modalFruitSize: '果実サイズ',
@@ -1079,6 +1108,9 @@ export const translations: Record<Language, TranslationDict> = {
     varietiesSub: 'راجع المواصفات الفنية وتحليلات الإنتاجية لأصناف الفواكه النخبوية المرخصة من EMCO CAL والتي نزرعها بعناية في حديقتنا بديريتشينه.',
     varietiesFruitSelect: 'اختر الفاكهة',
     varietiesSoon: 'قريباً',
+    galleryTitle: 'معرض الصور',
+    gallerySub: 'حديقتنا البيئية',
+    galleryDesc: 'جميع الصور الملتقطة من حديقتنا والتي توضح مراحل نمو شتلاتنا وموقع الزراعة العضوية (إجمالي {count} صورة).',
     modalOrigin: 'المنشأ / المطور',
     modalGrowth: 'طريقة النمو',
     modalFruitSize: 'حجم الثمرة',

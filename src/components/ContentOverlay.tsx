@@ -3,6 +3,7 @@ import { Sprout, ChevronLeft, ChevronRight, Eye, X, BookOpen, MapPin, TrendingUp
 import { useTranslation } from '../context/LanguageContext';
 import type { VarietyDetail } from './DetailModal';
 import type { FruitType } from './FruitSelector';
+import type { TranslationDict } from '../i18n';
 import { ThreeScene } from './ThreeScene';
 
 const BASE = import.meta.env.BASE_URL;
@@ -61,6 +62,15 @@ export const ContentOverlay: React.FC<ContentOverlayProps> = ({ activeFruit, set
 
     return () => clearInterval(interval);
   }, [isAutoplay, gardenImages.length]);
+
+  const getTranslated = (
+    id: string,
+    field: 'tag' | 'desc' | 'origin' | 'growth' | 'size' | 'taste' | 'chill' | 'harvest' | 'shelf',
+    fallback: string
+  ): string => {
+    const key = `${id}_${field}` as keyof TranslationDict;
+    return t[key] || fallback;
+  };
 
   const varietyData: Record<string, VarietyDetail[]> = {
     blackberry: [
@@ -612,12 +622,12 @@ export const ContentOverlay: React.FC<ContentOverlayProps> = ({ activeFruit, set
                         {variety.name}
                       </h3>
                       <p className="variety-compact-desc" style={{ 
-                        fontSize: '0.92rem', 
-                        color: 'var(--text-secondary)', 
-                        lineHeight: '1.6', 
-                        marginBottom: isExpanded ? '24px' : '0'
+                         fontSize: '0.92rem', 
+                         color: 'var(--text-secondary)', 
+                         lineHeight: '1.6', 
+                         marginBottom: isExpanded ? '24px' : '0'
                       }}>
-                        {variety.description}
+                        {getTranslated(variety.id, 'desc', variety.description)}
                       </p>
                     </div>
 
@@ -629,60 +639,60 @@ export const ContentOverlay: React.FC<ContentOverlayProps> = ({ activeFruit, set
                       transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
                     }}>
                       <h4 style={{ fontSize: '0.85rem', fontWeight: 800, textTransform: 'uppercase', color: 'var(--text-primary)', letterSpacing: '0.05em', marginBottom: '15px' }}>
-                        Ürün Özellikleri
+                        {t.modalFeatures}
                       </h4>
 
                       <div className="bento-grid">
                         <div className="bento-item">
                           <div className="bento-item-header">
                             <MapPin size={14} className="bento-item-icon" />
-                            <span className="spec-name">Köken</span>
+                            <span className="spec-name">{t.modalOrigin}</span>
                           </div>
-                          <span className="spec-value">{variety.origin}</span>
+                          <span className="spec-value">{getTranslated(variety.id, 'origin', variety.origin)}</span>
                         </div>
                         <div className="bento-item">
                           <div className="bento-item-header">
                             <TrendingUp size={14} className="bento-item-icon" />
-                            <span className="spec-name">Büyüme</span>
+                            <span className="spec-name">{t.modalGrowth}</span>
                           </div>
-                          <span className="spec-value">{variety.growth}</span>
+                          <span className="spec-value">{getTranslated(variety.id, 'growth', variety.growth)}</span>
                         </div>
                         <div className="bento-item">
                           <div className="bento-item-header">
                             <Maximize size={14} className="bento-item-icon" />
-                            <span className="spec-name">Meyve</span>
+                            <span className="spec-name">{t.modalFruitSize}</span>
                           </div>
-                          <span className="spec-value">{variety.fruitSize}</span>
+                          <span className="spec-value">{getTranslated(variety.id, 'size', variety.fruitSize)}</span>
                         </div>
                         <div className="bento-item">
                           <div className="bento-item-header">
                             <Utensils size={14} className="bento-item-icon" />
-                            <span className="spec-name">Lezzet</span>
+                            <span className="spec-name">{t.modalTaste}</span>
                           </div>
-                          <span className="spec-value">{variety.taste}</span>
+                          <span className="spec-value">{getTranslated(variety.id, 'taste', variety.taste)}</span>
                         </div>
                         <div className="bento-item">
                           <div className="bento-item-header">
                             <Snowflake size={14} className="bento-item-icon" />
-                            <span className="spec-name">Soğuklama</span>
+                            <span className="spec-name">{t.modalChill}</span>
                           </div>
-                          <span className="spec-value">{variety.chillHours}</span>
+                          <span className="spec-value">{getTranslated(variety.id, 'chill', variety.chillHours)}</span>
                         </div>
                         <div className="bento-item">
                           <div className="bento-item-header">
                             <CalendarDays size={14} className="bento-item-icon" />
-                            <span className="spec-name">Hasat</span>
+                            <span className="spec-name">{t.modalHarvest}</span>
                           </div>
-                          <span className="spec-value">{variety.harvest}</span>
+                          <span className="spec-value">{getTranslated(variety.id, 'harvest', variety.harvest)}</span>
                         </div>
-                        {variety.shelfLife && (
+                        {getTranslated(variety.id, 'shelf', variety.shelfLife) && (
                           <div className="bento-item full-width">
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                               <div className="bento-item-header">
                                 <ShieldCheck size={14} className="bento-item-icon" />
-                                <span className="spec-name">Dayanıklılık</span>
+                                <span className="spec-name">{t.modalShelfLife}</span>
                               </div>
-                              <span className="spec-value">{variety.shelfLife}</span>
+                              <span className="spec-value">{getTranslated(variety.id, 'shelf', variety.shelfLife)}</span>
                             </div>
                           </div>
                         )}
