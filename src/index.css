@@ -46,9 +46,9 @@
 }
 
 .lang-selector-btn {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.85);
+  background: rgba(28, 50, 36, 0.05);
+  border: 1px solid rgba(28, 50, 36, 0.12);
+  color: #3d5245;
   font-family: var(--font-body);
   font-size: 0.8rem;
   font-weight: 700;
@@ -63,9 +63,9 @@
 }
 
 .lang-selector-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  background: rgba(28, 50, 36, 0.1);
+  border-color: rgba(28, 50, 36, 0.25);
+  color: #1c3224;
 }
 
 .lang-dropdown {
