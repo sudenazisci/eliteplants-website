@@ -861,8 +861,10 @@ h1, h2, h3, h4 {
 
 @media (max-width: 768px) {
   .products-vintage-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    width: 100% !important;
   }
   .product-stamp-card {
     padding: 16px 10px !important;
@@ -889,11 +891,16 @@ h1, h2, h3, h4 {
 
 @media (max-width: 540px) {
   .products-vintage-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    max-width: 300px;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
   }
   .product-stamp-card {
+    flex: none !important;
+    width: 100% !important;
+
     padding: 24px 16px !important;
     border-radius: 20px !important;
   }
@@ -3436,7 +3443,7 @@ h1, h2, h3, h4 {
   .section-title {
     font-size: 2.0rem !important;
   }
-  .hero-vintage-desc, .products-vintage-container p, .varieties-header p {
+  .hero-vintage-desc, .products-vintage-container p, .varieties-header p, .about-desc {
     font-size: 0.9rem !important;
     line-height: 1.5 !important;
   }
@@ -3586,6 +3593,23 @@ h1, h2, h3, h4 {
   }
   .modal-content {
     padding: 16px !important;
+  }
+  .about-section {
+    gap: 15px !important;
+  }
+  .about-tab-content {
+    padding: 16px !important;
+    margin-bottom: 16px !important;
+  }
+  .gallery-showcase-container {
+    gap: 12px !important;
+  }
+  .slideshow-frame {
+    height: 200px !important;
+  }
+  .about-pane-title {
+    font-size: 0.75rem !important;
+    margin-bottom: 10px !important;
   }
 }
 
