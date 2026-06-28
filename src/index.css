@@ -2377,6 +2377,9 @@ h1, h2, h3, h4 {
 
 /* Animations and Responsive */
 @media (max-width: 1024px) {
+  .section-side-drawing {
+    display: none !important;
+  }
   .about-section {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -2394,9 +2397,6 @@ h1, h2, h3, h4 {
 }
 
 @media (max-width: 768px) {
-  .section-side-drawing {
-    display: none !important;
-  }
   .navbar-vintage-container {
     padding: 0 3% !important;
     grid-template-columns: 1fr auto 1fr !important;
@@ -3436,6 +3436,19 @@ h1, h2, h3, h4 {
 /* Comprehensive Mobile Responsive Polish Overrides */
 @media (max-width: 768px) {
   /* Scale Typography & Headers */
+  .modal-content {
+    overflow-y: auto !important;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 12px !important;
+    text-align: center !important;
+  }
+  .footer-certifications {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
   .scroll-section {
     padding: 60px 4% !important;
   }
@@ -3737,6 +3750,11 @@ html[dir="rtl"] .stat-mini-item::before {
 html[dir="rtl"] .lang-selector-container {
   margin-left: 0;
   margin-right: 10px;
+}
+
+html[dir="rtl"] .lang-dropdown {
+  right: auto !important;
+  left: 0 !important;
 }
 
 html[dir="rtl"] .logo-vintage-text span {
