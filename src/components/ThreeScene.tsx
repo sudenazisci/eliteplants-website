@@ -35,8 +35,10 @@ export const ThreeScene: React.FC<ThreeSceneProps> = ({ activeFruit, disableScro
     const scene = new THREE.Scene();
     sceneRef.current = scene;
 
-    const width = containerRef.current.clientWidth || window.innerWidth;
-    const height = containerRef.current.clientHeight || window.innerHeight;
+    // Use getBoundingClientRect for accurate initial size (clientWidth may be 0 on first paint)
+    const rect = containerRef.current.getBoundingClientRect();
+    const width = rect.width || containerRef.current.offsetWidth || 300;
+    const height = rect.height || containerRef.current.offsetHeight || 200;
 
     const camera = new THREE.PerspectiveCamera(36, width / height, 0.1, 100);
     camera.position.z = 5.8;
@@ -53,6 +55,9 @@ export const ThreeScene: React.FC<ThreeSceneProps> = ({ activeFruit, disableScro
 
     containerRef.current.innerHTML = '';
     containerRef.current.appendChild(renderer.domElement);
+    // Make the canvas fill the container fully
+    renderer.domElement.style.width = '100%';
+    renderer.domElement.style.height = '100%';
 
     // ── LIGHTS ──────────────────────────────────────────────────
     // Mimics studio white-background lighting from the reference photo
@@ -460,14 +465,21 @@ export const ThreeScene: React.FC<ThreeSceneProps> = ({ activeFruit, disableScro
     };
     const handleResize = () => {
       if (!containerRef.current || !cameraRef.current || !rendererRef.current) return;
-      const w = containerRef.current.clientWidth;
-      const h = containerRef.current.clientHeight;
+      const w = containerRef.current.offsetWidth;
+      const h = containerRef.current.offsetHeight;
+      if (w === 0 || h === 0) return;
       cameraRef.current.aspect = w / h;
       cameraRef.current.updateProjectionMatrix();
       rendererRef.current.setSize(w, h);
     };
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('resize', handleResize);
+
+    // ResizeObserver: catches layout changes (e.g. card appearing, orientation change)
+    const resizeObserver = new ResizeObserver(() => handleResize());
+    if (containerRef.current) resizeObserver.observe(containerRef.current);
+    // Trigger once after a short delay to catch deferred layout
+    const initTimer = setTimeout(() => handleResize(), 150);
 
     // ── ANIMATION LOOP ──────────────────────────────────────────
     let animId: number;
@@ -549,6 +561,8 @@ export const ThreeScene: React.FC<ThreeSceneProps> = ({ activeFruit, disableScro
 
     return () => {
       cancelAnimationFrame(animId);
+      clearTimeout(initTimer);
+      resizeObserver.disconnect();
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
       renderer.dispose();

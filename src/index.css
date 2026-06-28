@@ -199,6 +199,22 @@ body::-webkit-scrollbar-thumb {
   transition: opacity 0.5s ease;
 }
 
+/* The Three.js canvas inside always fills the wrapper */
+.canvas-container canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Inside product cards the canvas should not overflow */
+.product-3d-wrap .canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
